@@ -70,101 +70,16 @@ exports[`HomeScreen should render correctly 1`] = `
         }
       }
     >
-      <View
-        style={
-          Object {
-            "alignContent": "space-between",
-            "alignItems": "center",
-            "flexDirection": "row",
-            "fontFamily": "HelveticaNeue-Medium",
-            "fontSize": 14,
-            "justifyContent": "center",
-            "paddingBottom": 10,
-          }
-        }
-      >
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#383B42",
-                "fontFamily": "Montserrat-Medium",
-                "fontSize": 12,
-                "lineHeight": 24,
-                "textTransform": "uppercase",
-              }
-            }
-          >
-            about
-          </Text>
-        </View>
-        <Text
-          style={
-            Object {
-              "paddingHorizontal": 10,
-            }
-          }
-        >
-          |
-        </Text>
-        <View
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#383B42",
-                "fontFamily": "Montserrat-Medium",
-                "fontSize": 12,
-                "lineHeight": 24,
-                "textTransform": "uppercase",
-              }
-            }
-          >
-            License
-          </Text>
-        </View>
-      </View>
       <Text
         style={
           Object {
             "color": "#383B42",
-            "fontFamily": "Montserrat-Regular",
+            "fontFamily": "HelveticaNeue-Medium",
             "fontSize": 13,
           }
         }
       >
-        login_footer_txt
+        Stargazers Viewer
       </Text>
     </View>
     <View
@@ -257,6 +172,75 @@ exports[`HomeScreen should render correctly 1`] = `
             Type a GitHub user below and select from the list to see his repositories.
           </Text>
         </View>
+        <AutocompleteDropdown
+          ChevronIconComponent={
+            <Feather
+              color="#fff"
+              name="chevron-down"
+              size={20}
+            />
+          }
+          ClearIconComponent={
+            <Feather
+              color="#fff"
+              name="x-circle"
+              size={18}
+            />
+          }
+          closeOnBlur={false}
+          containerStyle={
+            Object {
+              "flexGrow": 1,
+              "flexShrink": 1,
+            }
+          }
+          controller={[Function]}
+          debounce={600}
+          direction="down"
+          emptyResultText="No user found"
+          inputContainerStyle={
+            Object {
+              "backgroundColor": "#383b42",
+              "borderRadius": 25,
+              "marginTop": 20,
+            }
+          }
+          inputHeight={50}
+          loading={false}
+          onChangeText={[Function]}
+          onClear={[Function]}
+          onOpenSuggestionsList={[Function]}
+          onSelectItem={[Function]}
+          renderItem={[Function]}
+          rightButtonsContainerStyle={
+            Object {
+              "alignSelf": "center",
+              "height": 30,
+              "right": 15,
+            }
+          }
+          showChevron={false}
+          suggestionsListContainerStyle={
+            Object {
+              "backgroundColor": "#414757",
+            }
+          }
+          suggestionsListMaxHeight={533.6}
+          textInputProps={
+            Object {
+              "autoCapitalize": "none",
+              "autoCorrect": false,
+              "placeholder": "Type GitHub user...",
+              "style": Object {
+                "backgroundColor": "#383b42",
+                "borderRadius": 25,
+                "color": "#fff",
+                "paddingLeft": 18,
+              },
+            }
+          }
+          useFilter={false}
+        />
         <View
           accessibilityState={
             Object {
