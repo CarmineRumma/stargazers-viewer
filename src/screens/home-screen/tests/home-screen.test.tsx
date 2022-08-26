@@ -2,6 +2,7 @@ import React from 'react';
 
 import renderer from 'react-test-renderer';
 import {HomeScreen} from '../home-screen';
+import {Button} from '@stargazers/components';
 
 jest.mock('react-native-vector-icons/Feather', () => 'Feather');
 const goBack = jest.fn();
@@ -12,6 +13,7 @@ const addListener = jest.fn();
 jest.mock('react-native-autocomplete-dropdown', () => ({
   AutocompleteDropdown: 'AutocompleteDropdown',
 }));
+
 describe('HomeScreen', () => {
   it('should render correctly', () => {
     const {toJSON} = renderer.create(
@@ -20,5 +22,15 @@ describe('HomeScreen', () => {
     );
 
     expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('continue button should be disabled', () => {
+    const {root} = renderer.create(
+      //@ts-ignore
+      <HomeScreen navigation={{goBack, navigate, setOptions, addListener}} />,
+    );
+
+    const buttonProps = root.findByType(Button).props;
+    expect(buttonProps.disabled).toBeTruthy();
   });
 });

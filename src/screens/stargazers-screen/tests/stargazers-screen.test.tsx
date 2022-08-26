@@ -1,7 +1,7 @@
 import React from 'react';
 
 import renderer from 'react-test-renderer';
-import {RepositoriesScreen} from '../repositories-screen';
+import {StargazersScreen} from '../stargazers-screen';
 
 jest.mock('react-native-vector-icons/Feather', () => 'Feather');
 const goBack = jest.fn();
@@ -11,7 +11,8 @@ const addListener = jest.fn();
 const mockRoute = {
   params: {
     owner: 'test',
-    repositories: [],
+    repository: {name: 'test'},
+    stargazers: [],
   },
 };
 const mockedNavigate = jest.fn();
@@ -29,7 +30,7 @@ jest.mock('@react-navigation/native', () => {
 describe('HomeScreen', () => {
   it('should render correctly', () => {
     const {toJSON} = renderer.create(
-      <RepositoriesScreen
+      <StargazersScreen
         //@ts-ignore
         navigation={{goBack, navigate, setOptions, addListener}}
         //@ts-ignore
