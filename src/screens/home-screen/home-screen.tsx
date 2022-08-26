@@ -11,7 +11,7 @@ import {
 import useColorScheme from '../../hooks/useColorScheme';
 import {OwnerSuggestionType} from '@stargazers/screens/home-screen/home-screen.types';
 import Easing from '@stargazers/utils/easing';
-import {Colors, Fonts} from '@stargazers/theme';
+import {Colors} from '@stargazers/theme';
 import {styles} from './home-screen.styles';
 import {BlurView} from '@react-native-community/blur';
 import {AutocompleteDropdown, AutocompleteDropdownRef} from 'react-native-autocomplete-dropdown';
@@ -145,139 +145,137 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
           </Text>
         </Animated.View>
 
-        <KeyboardAvoidingView style={styles.container} behavior="height">
-          <Animated.View
-            style={{
-              ...styles.overlay,
-              opacity: fadeAnim,
-            }}>
-            {activeBlur && (
-              <View
-                style={{
-                  ...styles.overlay,
-                }}
-                pointerEvents={'box-only'}
-                onTouchEnd={() => {
-                  console.log('close keyboard');
-                  Keyboard.dismiss();
-                }}>
-                {Platform.OS === 'ios' && (
-                  <BlurView
-                    blurType={colorScheme}
-                    blurRadius={8}
-                    blurAmount={6}
-                    reducedTransparencyFallbackColor="white"
-                    style={{
-                      ...styles.overlay,
-                    }}
-                  />
-                )}
-                {Platform.OS === 'android' && (
-                  <View
-                    style={{
-                      ...styles.overlay,
-                    }}
-                  />
-                )}
-              </View>
-            )}
-          </Animated.View>
-          <Animated.View
-            style={{
-              ...styles.panel,
-              backgroundColor: Colors[colorScheme].background,
-              borderColor: Colors[colorScheme].buttonEnabledColor,
-              shadowColor: Colors[colorScheme].secondary,
-              opacity: fadeAnim,
-              transform: [
-                {
-                  translateY: transAnim,
-                },
-              ],
-            }}>
-            <InfoTextLayout
-              text={'Type a GitHub user below and select from the list to see his repositories.'}
-            />
-
-            <AutocompleteDropdown
-              // @ts-ignore
-              ref={searchRef}
-              controller={controller => {
-                dropdownController.current = controller;
-              }}
-              // initialValue={'1'}
-              direction={Platform.select({ios: 'down'})}
-              dataSet={suggestionsList}
-              onChangeText={getSuggestions}
-              onSelectItem={item => {
-                item && console.log(item.title);
-                item && setSelectedUser(item.title);
-              }}
-              debounce={600}
-              suggestionsListMaxHeight={SCREEN_HEIGHT * 0.4}
-              onClear={onClearPress}
-              //onSubmit={(e) => onSubmitSearch(e.nativeEvent.text)}
-              onOpenSuggestionsList={onOpenSuggestionsList}
-              loading={loading}
-              useFilter={false}
-              textInputProps={{
-                placeholder: 'Type GitHub user...',
-                autoCorrect: false,
-                autoCapitalize: 'none',
-                style: {
-                  ...styles.autocompleteTextInput,
-                },
-              }}
-              rightButtonsContainerStyle={styles.rightButtonsContainerStyle}
-              inputContainerStyle={styles.inputContainerStyle}
-              suggestionsListContainerStyle={{
-                ...styles.suggestionContainerStyle,
-                backgroundColor: Colors[colorScheme].secondary,
-              }}
-              containerStyle={styles.autocompleteContainerStyle}
-              emptyResultText={'No user found'}
-              renderItem={item => (
-                <Text
-                  style={{
-                    ...styles.autocompleteItemText,
-                  }}>
-                  {item.title}
-                </Text>
-              )}
-              ChevronIconComponent={<Feather name="chevron-down" size={20} color="#fff" />}
-              ClearIconComponent={<Feather name="x-circle" size={18} color="#fff" />}
-              inputHeight={50}
-              showChevron={!!selectedUser}
-              closeOnBlur={false}
-            />
-
-            <Button
+        <Animated.View
+          style={{
+            ...styles.overlay,
+            opacity: fadeAnim,
+          }}>
+          {activeBlur && (
+            <View
               style={{
-                ...styles.continueButton,
-                backgroundColor:
-                  selectedUser !== null
-                    ? Colors[colorScheme].buttonEnabledBg
-                    : Colors[colorScheme].buttonDisabledBg,
-                borderColor:
+                ...styles.overlay,
+              }}
+              pointerEvents={'box-only'}
+              onTouchEnd={() => {
+                console.log('close keyboard');
+                Keyboard.dismiss();
+              }}>
+              {Platform.OS === 'ios' && (
+                <BlurView
+                  blurType={colorScheme}
+                  blurRadius={8}
+                  blurAmount={6}
+                  reducedTransparencyFallbackColor="white"
+                  style={{
+                    ...styles.overlay,
+                  }}
+                />
+              )}
+              {Platform.OS === 'android' && (
+                <View
+                  style={{
+                    ...styles.overlay,
+                  }}
+                />
+              )}
+            </View>
+          )}
+        </Animated.View>
+        <Animated.View
+          style={{
+            ...styles.panel,
+            backgroundColor: Colors[colorScheme].background,
+            borderColor: Colors[colorScheme].buttonEnabledColor,
+            shadowColor: Colors[colorScheme].secondary,
+            opacity: fadeAnim,
+            transform: [
+              {
+                translateY: transAnim,
+              },
+            ],
+          }}>
+          <InfoTextLayout
+            text={'Type a GitHub user below and select from the list to see his repositories.'}
+          />
+
+          <AutocompleteDropdown
+            // @ts-ignore
+            ref={searchRef}
+            controller={controller => {
+              dropdownController.current = controller;
+            }}
+            // initialValue={'1'}
+            direction={Platform.select({ios: 'down'})}
+            dataSet={suggestionsList}
+            onChangeText={getSuggestions}
+            onSelectItem={item => {
+              item && console.log(item.title);
+              item && setSelectedUser(item.title);
+            }}
+            debounce={600}
+            suggestionsListMaxHeight={SCREEN_HEIGHT * 0.4}
+            onClear={onClearPress}
+            //onSubmit={(e) => onSubmitSearch(e.nativeEvent.text)}
+            onOpenSuggestionsList={onOpenSuggestionsList}
+            loading={loading}
+            useFilter={false}
+            textInputProps={{
+              placeholder: 'Type GitHub user...',
+              autoCorrect: false,
+              autoCapitalize: 'none',
+              style: {
+                ...styles.autocompleteTextInput,
+              },
+            }}
+            rightButtonsContainerStyle={styles.rightButtonsContainerStyle}
+            inputContainerStyle={styles.inputContainerStyle}
+            suggestionsListContainerStyle={{
+              ...styles.suggestionContainerStyle,
+              backgroundColor: Colors[colorScheme].secondary,
+            }}
+            containerStyle={styles.autocompleteContainerStyle}
+            emptyResultText={'No user found'}
+            renderItem={item => (
+              <Text
+                style={{
+                  ...styles.autocompleteItemText,
+                }}>
+                {item.title}
+              </Text>
+            )}
+            ChevronIconComponent={<Feather name="chevron-down" size={20} color="#fff" />}
+            ClearIconComponent={<Feather name="x-circle" size={18} color="#fff" />}
+            inputHeight={50}
+            showChevron={!!selectedUser}
+            closeOnBlur={false}
+          />
+
+          <Button
+            style={{
+              ...styles.continueButton,
+              backgroundColor:
+                selectedUser !== null
+                  ? Colors[colorScheme].buttonEnabledBg
+                  : Colors[colorScheme].buttonDisabledBg,
+              borderColor:
+                selectedUser !== null
+                  ? Colors[colorScheme].buttonEnabledColor
+                  : Colors[colorScheme].buttonDisabledColor,
+            }}
+            onPress={fetchRepositories}
+            disabled={selectedUser === null}>
+            <Text
+              style={{
+                ...styles.continueButtonText,
+                color:
                   selectedUser !== null
                     ? Colors[colorScheme].buttonEnabledColor
                     : Colors[colorScheme].buttonDisabledColor,
-              }}
-              onPress={fetchRepositories}
-              disabled={selectedUser === null}>
-              <Text
-                style={{
-                  ...styles.continueButtonText,
-                  color:
-                    selectedUser !== null
-                      ? Colors[colorScheme].buttonEnabledColor
-                      : Colors[colorScheme].buttonDisabledColor,
-                }}>
-                Continua
-              </Text>
-            </Button>
-          </Animated.View>
-        </KeyboardAvoidingView>
+              }}>
+              Continua
+            </Text>
+          </Button>
+        </Animated.View>
       </Background>
     </>
   );

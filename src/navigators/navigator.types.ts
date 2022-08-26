@@ -1,6 +1,5 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RepositoryItem, StargazersItem} from '@stargazers/services/user-service/user-service.types';
-import {StargazersScreen} from '@stargazers/screens/stargazers-screen';
 
 export type RootStackParamList = {
   HomeScreen: undefined;

@@ -9,6 +9,11 @@ buildscript {
         compileSdkVersion = 31
         targetSdkVersion = 31
 
+        kotlinVersion = "1.5.20"
+        androidXAnnotation = "1.1.0"
+        androidXBrowser = "1.0.0"
+        // Put here other AndroidX dependencies
+        androidXCore = "1.7.0" // <-- net-info. Check versions here: https://developer.android.com/jetpack/androidx/releases/core
         if (System.properties['os.arch'] == "aarch64") {
             // For M1 Users we need to use the NDK 24 which added support for aarch64
             ndkVersion = "24.0.8215888"

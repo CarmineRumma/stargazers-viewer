@@ -263,6 +263,14 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
+    project.ext.vectoricons = [
+        iconFontNames: [
+        'HelveticaNeue-Regular.ttf',
+        'HelveticaNeue-Medium.otf',
+        ] // Name of the font files you want to copy
+    ]
+    implementation project(':react-native-vector-icons')
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }

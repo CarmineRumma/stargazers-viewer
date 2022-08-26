@@ -1,7 +1,5 @@
 import * as React from 'react';
-import {Appearance, SafeAreaView} from 'react-native';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const colorScheme = Appearance.getColorScheme();
+import {SafeAreaView} from 'react-native';
 
 const withSafeArea = (WrappedComponent: React.ComponentType<any>) => {
   return (props: any) => {

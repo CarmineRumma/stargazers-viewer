@@ -36,7 +36,6 @@ export default function RootNavigator() {
           options={{
             ...navigationBarOptions,
             headerShown: true,
-            //presentation: 'modal',
           }}
         />
       </AppStack.Group>
@@ -47,7 +46,6 @@ export default function RootNavigator() {
           options={{
             ...navigationBarOptions,
             headerShown: true,
-            //presentation: 'modal',
           }}
         />
       </AppStack.Group>

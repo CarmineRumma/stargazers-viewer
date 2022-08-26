@@ -6,11 +6,10 @@ import 'react-native';
 import React from 'react';
 import App from '@stargazers/App';
 
-// Mock for react-native-device-info
 jest.mock('react-native-device-info', () => {
   return {
     getVersion: jest.fn(() => Promise.resolve('1.0')),
-    getApplicationName: jest.fn(() => Promise.resolve('My App')),
+    getSystemVersion: jest.fn(() => Promise.resolve('My App')),
   };
 });
 
