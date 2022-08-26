@@ -1,5 +1,3 @@
-
-export JAVA_HOME=`/usr/libexec/java_home -v 11`
 <p align="center" >
 <p align="center" >
    <a href="https://github.com/CarmineRumma/stargazers-viewer">
