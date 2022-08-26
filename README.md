@@ -1,2 +1,2 @@
-![](https://github.com/stargazers-viewer/preview.gif)
+![](https://raw.githubusercontent.com/CarmineRumma/stargazers-viewer/main/preview.gif)
 
