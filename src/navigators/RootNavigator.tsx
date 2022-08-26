@@ -5,6 +5,7 @@ import React from 'react';
 import {HomeScreen} from '@stargazers/screens/home-screen';
 import {RepositoriesScreen} from '@stargazers/screens/repositories-screen';
 import {RootStackParamList} from '@stargazers/navigators/navigator.types';
+import {StargazersScreen} from '@stargazers/screens/stargazers-screen';
 
 export default function RootNavigator() {
   const colorScheme = useColorScheme();
@@ -32,6 +33,17 @@ export default function RootNavigator() {
         <AppStack.Screen
           name="RepositoriesScreen"
           component={RepositoriesScreen}
+          options={{
+            ...navigationBarOptions,
+            headerShown: true,
+            //presentation: 'modal',
+          }}
+        />
+      </AppStack.Group>
+      <AppStack.Group>
+        <AppStack.Screen
+          name="StargazersScreen"
+          component={StargazersScreen}
           options={{
             ...navigationBarOptions,
             headerShown: true,

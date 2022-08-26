@@ -1,23 +1,18 @@
 import React from 'react';
-import {Appearance, Image, ListRenderItemInfo, Text, TouchableHighlight, View} from 'react-native';
-import {RepositoryItem} from '@stargazers/services/user-service/user-service.types';
+import {Image, Text, TouchableHighlight, View} from 'react-native';
 import {Colors, Fonts} from '@stargazers/theme';
 import {styles} from '@stargazers/screens/repositories-screen/repository-cell.styles';
 import SvgArrowRight from '@stargazers/assets/Svg.ArrowRight';
 import moment from 'moment';
 import useColorScheme from '@stargazers/hooks/useColorScheme';
-//import FastImage from 'react-native-fast-image';
+import {RepositoryCellProps} from '@stargazers/screens/repositories-screen/repositories-screen.types';
 
-const getColorScheme = Appearance.getColorScheme;
-const colorScheme = getColorScheme()!;
-
-export interface CategoryCellProps extends ListRenderItemInfo<RepositoryItem> {}
-
-export const RepositoryCell: React.FC<CategoryCellProps> = ({
+export const RepositoryCell: React.FC<RepositoryCellProps> = ({
   item,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   index,
   separators,
+  onRepoClick,
 }) => {
   const colorScheme = useColorScheme();
 
@@ -33,7 +28,7 @@ export const RepositoryCell: React.FC<CategoryCellProps> = ({
         underlayColor={Colors[colorScheme].cellHighlight}
         onShowUnderlay={separators.highlight}
         onHideUnderlay={separators.unhighlight}
-        onPress={() => console.log(item.name)}>
+        onPress={() => onRepoClick(item)}>
         <View style={styles.cellWrapper}>
           <View
             style={{

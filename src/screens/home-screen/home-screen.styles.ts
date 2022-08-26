@@ -1,6 +1,6 @@
 import {Platform, StyleSheet} from 'react-native';
 import {SCREEN_WIDTH} from '@stargazers/utils/dimensions';
-import {Fonts} from '@stargazers/theme';
+import {Colors, Fonts} from '@stargazers/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -131,5 +131,10 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: Fonts.helveticaMedium,
     fontSize: 18,
+  },
+  footerText: {
+    fontFamily: Fonts.helveticaMedium,
+    fontSize: 13,
+    color: '#000',
   },
 });

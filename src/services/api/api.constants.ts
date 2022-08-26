@@ -3,4 +3,8 @@ export const UrlTemplates = {
   GET_USER_REPOSITORIES: '/users/{owner}/repos',
 };
 
-export const ApiUrls = {};
+export const ApiUrls = {
+  GET_REPO_STARGAZERS: (owner: string, repository: string) => {
+    return `repos/${owner}/${repository}/stargazers`;
+  },
+};

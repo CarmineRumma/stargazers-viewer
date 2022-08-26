@@ -7,7 +7,6 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   TouchableOpacity,
-  Linking,
 } from 'react-native';
 import useColorScheme from '../../hooks/useColorScheme';
 import {OwnerSuggestionType} from '@stargazers/screens/home-screen/home-screen.types';
@@ -22,10 +21,7 @@ import {SCREEN_HEIGHT} from '@stargazers/utils/dimensions';
 import {getUserRepositories, searchUsers} from '@stargazers/services/user-service/user-service';
 import {Background, Button, InfoTextLayout} from '@stargazers/components';
 import {HomeScreenProps} from '@stargazers/navigators/navigator.types';
-//Feather.loadFont();
 export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}) => {
-  console.log('HomeScreen');
-
   const colorScheme = useColorScheme();
 
   const [loading, setLoading] = useState(false);
@@ -60,9 +56,11 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
 
   const onOpenSuggestionsList = useCallback((isOpened: boolean) => {}, []);
 
+  // Animations Ref
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const transAnim = useRef(new Animated.Value(180)).current;
   const transAnimFooter = useRef(new Animated.Value(0)).current;
+  const [activeBlur, setActiveBlur] = useState(false);
 
   const setLoadingState = useCallback(() => {
     Animated.timing(transAnimFooter, {
@@ -84,8 +82,6 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
       duration: 1300,
     }).start();
   }, [fadeAnim, transAnim, transAnimFooter]);
-
-  const [activeBlur, setActiveBlur] = useState(false);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -140,52 +136,12 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
               },
             ],
           }}>
-          <View style={styles.footerLinks}>
-            <TouchableOpacity
-              onPress={async () => {
-                // @ts-ignore
-                navigation.navigate('AboutScreen', {});
-              }}>
-              <Text
-                style={{
-                  fontSize: 12,
-                  lineHeight: 24,
-                  fontFamily: Fonts.medium,
-                  color: Colors[colorScheme].tint,
-                  textTransform: 'uppercase',
-                }}>
-                about
-              </Text>
-            </TouchableOpacity>
-            <Text style={{paddingHorizontal: 10}}>|</Text>
-            <TouchableOpacity
-              onPress={async () => {
-                if (Platform.OS === 'ios') {
-                  //await Linking.openURL(Constants.tos_link);
-                } else {
-                  // @ts-ignore
-                  navigation.navigate('TermsScreen', {});
-                }
-              }}>
-              <Text
-                style={{
-                  fontSize: 12,
-                  lineHeight: 24,
-                  fontFamily: Fonts.medium,
-                  color: Colors[colorScheme].tint,
-                  textTransform: 'uppercase',
-                }}>
-                License
-              </Text>
-            </TouchableOpacity>
-          </View>
           <Text
             style={{
-              fontFamily: Fonts.regular,
-              fontSize: 13,
+              ...styles.footerText,
               color: Colors[colorScheme].tint,
             }}>
-            {'login_footer_txt'}
+            {'Stargazers Viewer'}
           </Text>
         </Animated.View>
 
@@ -264,7 +220,7 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
               loading={loading}
               useFilter={false}
               textInputProps={{
-                placeholder: 'Type 3+ letters (dolo...)',
+                placeholder: 'Type GitHub user...',
                 autoCorrect: false,
                 autoCapitalize: 'none',
                 style: {
@@ -278,10 +234,7 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
                 backgroundColor: Colors[colorScheme].secondary,
               }}
               containerStyle={styles.autocompleteContainerStyle}
-              // @ts-ignore
-              EmptyResultComponent={_ => (
-                <Text style={styles.autocompleteItemText}>No Users found</Text>
-              )}
+              emptyResultText={'No user found'}
               renderItem={item => (
                 <Text
                   style={{

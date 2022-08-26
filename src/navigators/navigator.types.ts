@@ -1,5 +1,6 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RepositoryItem} from '@stargazers/services/user-service/user-service.types';
+import {RepositoryItem, StargazersItem} from '@stargazers/services/user-service/user-service.types';
+import {StargazersScreen} from '@stargazers/screens/stargazers-screen';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
@@ -9,7 +10,8 @@ export type RootStackParamList = {
   };
   StargazersScreen: {
     owner: string;
-    stargazers: RepositoryItem[];
+    repository: RepositoryItem;
+    stargazers: StargazersItem[];
   };
 };
 export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'HomeScreen'>;

@@ -1,21 +1,21 @@
-import React, {SetStateAction, useCallback, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import useColorScheme from '../../hooks/useColorScheme';
 
 import {FlatList, View, Text, Platform, RefreshControl, TextInput} from 'react-native';
-import {getUserRepositories} from '@stargazers/services/user-service/user-service';
+import {getStargazers, getUserRepositories} from '@stargazers/services/user-service/user-service';
 import {RepositoryItem} from '@stargazers/services/user-service/user-service.types';
 import {styles} from './repositories-screen.styles';
 import {RepositoriesScreenProps} from '@stargazers/navigators/navigator.types';
-import {Colors, Fonts} from '@stargazers/theme';
-import {SCREEN_HEIGHT} from '@stargazers/utils/dimensions';
+import {Colors, GlobalStyles} from '@stargazers/theme';
 import {RepositoryCell} from '@stargazers/screens/repositories-screen/repository-cell';
-export const RepositoriesScreen = ({route, navigation}: RepositoriesScreenProps) => {
+import {useNavigation} from '@react-navigation/native';
+export const RepositoriesScreen = ({route}: RepositoriesScreenProps) => {
   const colorScheme = useColorScheme();
   const owner: string = route.params.owner;
   const [refreshing, setRefreshing] = useState(false);
-  console.log('RepositoriesScreen', owner);
-
+  const [loading, setLoading] = useState(false);
+  const navigation = useNavigation();
   const [repositories, setRepositories] = useState<RepositoryItem[]>(route.params.repositories);
   const [filteredRepositories, setFilteredRepositories] = useState<RepositoryItem[]>(
     route.params.repositories,
@@ -25,7 +25,7 @@ export const RepositoriesScreen = ({route, navigation}: RepositoriesScreenProps)
   useEffect(() => {
     //fetchRepos();
     navigation.setOptions({
-      title: owner + ' respositories',
+      title: owner,
     });
   }, [owner]);
 
@@ -45,7 +45,6 @@ export const RepositoriesScreen = ({route, navigation}: RepositoriesScreenProps)
   const searchFilterFunction = (text: string) => {
     if (text) {
       const newData = repositories.filter(function (item) {
-        // Applying filter for the inserted text in search bar
         const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
         const textData = text.toUpperCase();
         return itemData.indexOf(textData) > -1;
@@ -58,7 +57,20 @@ export const RepositoriesScreen = ({route, navigation}: RepositoriesScreenProps)
     }
   };
 
-  const [loading, setLoading] = useState(false);
+  const fetchStargazers = (item: RepositoryItem) => {
+    getStargazers(owner, item.name).then(
+      response => {
+        navigation.navigate('StargazersScreen', {
+          owner: owner,
+          repository: item,
+          stargazers: response.data,
+        });
+      },
+      () => {
+        console.log('error');
+      },
+    );
+  };
 
   // @ts-ignore
   return (
@@ -96,26 +108,34 @@ export const RepositoriesScreen = ({route, navigation}: RepositoriesScreenProps)
         data={filteredRepositories}
         keyExtractor={item => item.id.toString()}
         renderItem={props => {
-          return <RepositoryCell {...props} />;
+          return <RepositoryCell {...props} onRepoClick={fetchStargazers} />;
         }}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-        ListEmptyComponent={() => {
+        ListHeaderComponent={() => {
           return (
             <View
               style={{
-                paddingTop: SCREEN_HEIGHT / 4,
-                flex: 1,
-                flexDirection: 'column',
-                alignContent: 'center',
-                alignItems: 'center',
+                ...styles.productCounterBar,
+                backgroundColor: Colors[colorScheme].background,
               }}>
               <Text
                 style={{
-                  ...styles.titleText,
+                  ...styles.productCountLabel,
+                  color: Colors[colorScheme].secondary,
+                }}>
+                {filteredRepositories.length} repositories
+              </Text>
+            </View>
+          );
+        }}
+        stickyHeaderIndices={[0]}
+        ListEmptyComponent={() => {
+          return (
+            <View style={GlobalStyles.emptyListWrapper}>
+              <Text
+                style={{
+                  ...GlobalStyles.emptyListText,
                   color: Colors[colorScheme].tint,
-                  fontFamily: Fonts.semibold,
-                  fontSize: 26,
-                  textAlign: 'center',
                 }}>
                 No Repositories
               </Text>
