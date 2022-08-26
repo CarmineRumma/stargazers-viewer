@@ -137,4 +137,11 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     color: '#000',
   },
+  emptyListPlaceholder: {
+    fontFamily: Fonts.helveticaMedium,
+    fontSize: 16,
+    color: '#FFF',
+    padding: 10,
+    textAlign: 'center',
+  },
 });

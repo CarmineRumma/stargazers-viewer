@@ -234,7 +234,16 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
               backgroundColor: Colors[colorScheme].secondary,
             }}
             containerStyle={styles.autocompleteContainerStyle}
-            emptyResultText={'No user found'}
+            EmptyResultComponent={
+              (
+                <Text
+                  style={{
+                    ...styles.emptyListPlaceholder,
+                  }}>
+                  No user found
+                </Text>
+              ) as React.ReactElement<any, any>
+            }
             renderItem={item => (
               <Text
                 style={{
