@@ -83,211 +83,197 @@ exports[`HomeScreen should render correctly 1`] = `
       </Text>
     </View>
     <View
-      onLayout={[Function]}
+      collapsable={false}
       style={
         Object {
-          "alignItems": "center",
-          "alignSelf": "center",
-          "flex": 1,
-          "justifyContent": "center",
-          "padding": 0,
+          "backgroundColor": "rgba(255,255,255,0.12)",
+          "height": "100%",
+          "opacity": 0,
+          "position": "absolute",
           "width": "100%",
+          "zIndex": 1000,
+        }
+      }
+    />
+    <View
+      collapsable={false}
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "borderBottomWidth": 0,
+          "borderColor": "#FFFFFF",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "elevation": 1,
+          "height": 310,
+          "maxWidth": 400,
+          "opacity": 0,
+          "padding": 20,
+          "paddingTop": 15,
+          "position": "absolute",
+          "shadowColor": "#414757",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.4,
+          "shadowRadius": 2,
+          "transform": Array [
+            Object {
+              "translateY": 180,
+            },
+          ],
+          "width": "85%",
+          "zIndex": 2000,
         }
       }
     >
       <View
-        collapsable={false}
         style={
           Object {
-            "backgroundColor": "rgba(255,255,255,0.12)",
-            "height": "100%",
-            "opacity": 0,
-            "position": "absolute",
+            "backgroundColor": "#9867F0",
+            "borderRadius": 12,
+            "flexDirection": "row",
+            "marginTop": 12,
+            "padding": 16,
             "width": "100%",
-            "zIndex": 1000,
-          }
-        }
-      />
-      <View
-        collapsable={false}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderBottomWidth": 0,
-            "borderColor": "#FFFFFF",
-            "borderRadius": 20,
-            "borderWidth": 1,
-            "elevation": 1,
-            "height": 310,
-            "maxWidth": 400,
-            "opacity": 0,
-            "padding": 20,
-            "paddingTop": 15,
-            "position": "absolute",
-            "shadowColor": "#414757",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.4,
-            "shadowRadius": 2,
-            "transform": Array [
-              Object {
-                "translateY": 180,
-              },
-            ],
-            "width": "85%",
-            "zIndex": 2000,
           }
         }
       >
-        <View
+        <Feather
+          color="#FFFFFF"
+          name="alert-circle"
+          size={18}
+        />
+        <Text
           style={
             Object {
-              "backgroundColor": "#9867F0",
-              "borderRadius": 12,
-              "flexDirection": "row",
-              "marginTop": 12,
-              "padding": 16,
-              "width": "100%",
+              "color": "#FFFFFF",
+              "fontFamily": "HelveticaNeue-Medium",
+              "fontSize": 16,
+              "marginEnd": 16,
+              "marginStart": 8,
             }
           }
         >
+          Type a GitHub user below and select from the list to see his repositories.
+        </Text>
+      </View>
+      <AutocompleteDropdown
+        ChevronIconComponent={
           <Feather
-            color="#FFFFFF"
-            name="alert-circle"
+            color="#fff"
+            name="chevron-down"
+            size={20}
+          />
+        }
+        ClearIconComponent={
+          <Feather
+            color="#fff"
+            name="x-circle"
             size={18}
           />
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontFamily": "HelveticaNeue-Medium",
-                "fontSize": 16,
-                "marginEnd": 16,
-                "marginStart": 8,
-              }
-            }
-          >
-            Type a GitHub user below and select from the list to see his repositories.
-          </Text>
-        </View>
-        <AutocompleteDropdown
-          ChevronIconComponent={
-            <Feather
-              color="#fff"
-              name="chevron-down"
-              size={20}
-            />
+        }
+        closeOnBlur={false}
+        containerStyle={
+          Object {
+            "flexGrow": 1,
+            "flexShrink": 1,
           }
-          ClearIconComponent={
-            <Feather
-              color="#fff"
-              name="x-circle"
-              size={18}
-            />
+        }
+        controller={[Function]}
+        debounce={600}
+        direction="down"
+        emptyResultText="No user found"
+        inputContainerStyle={
+          Object {
+            "backgroundColor": "#383b42",
+            "borderRadius": 25,
+            "marginTop": 20,
           }
-          closeOnBlur={false}
-          containerStyle={
-            Object {
-              "flexGrow": 1,
-              "flexShrink": 1,
-            }
+        }
+        inputHeight={50}
+        loading={false}
+        onChangeText={[Function]}
+        onClear={[Function]}
+        onOpenSuggestionsList={[Function]}
+        onSelectItem={[Function]}
+        renderItem={[Function]}
+        rightButtonsContainerStyle={
+          Object {
+            "alignSelf": "center",
+            "height": 30,
+            "right": 15,
           }
-          controller={[Function]}
-          debounce={600}
-          direction="down"
-          emptyResultText="No user found"
-          inputContainerStyle={
-            Object {
+        }
+        showChevron={false}
+        suggestionsListContainerStyle={
+          Object {
+            "backgroundColor": "#414757",
+          }
+        }
+        suggestionsListMaxHeight={533.6}
+        textInputProps={
+          Object {
+            "autoCapitalize": "none",
+            "autoCorrect": false,
+            "placeholder": "Type GitHub user...",
+            "style": Object {
               "backgroundColor": "#383b42",
               "borderRadius": 25,
-              "marginTop": 20,
-            }
+              "color": "#fff",
+              "paddingLeft": 18,
+            },
           }
-          inputHeight={50}
-          loading={false}
-          onChangeText={[Function]}
-          onClear={[Function]}
-          onOpenSuggestionsList={[Function]}
-          onSelectItem={[Function]}
-          renderItem={[Function]}
-          rightButtonsContainerStyle={
-            Object {
-              "alignSelf": "center",
-              "height": 30,
-              "right": 15,
-            }
+        }
+        useFilter={false}
+      />
+      <View
+        accessibilityState={
+          Object {
+            "disabled": true,
           }
-          showChevron={false}
-          suggestionsListContainerStyle={
-            Object {
-              "backgroundColor": "#414757",
-            }
-          }
-          suggestionsListMaxHeight={533.6}
-          textInputProps={
-            Object {
-              "autoCapitalize": "none",
-              "autoCorrect": false,
-              "placeholder": "Type GitHub user...",
-              "style": Object {
-                "backgroundColor": "#383b42",
-                "borderRadius": 25,
-                "color": "#fff",
-                "paddingLeft": 18,
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignSelf": "center",
+            "backgroundColor": "#B4B4B4",
+            "borderColor": "#505050",
+            "borderRadius": 40,
+            "minWidth": 150,
+            "padding": 10,
+            "transform": Array [
+              Object {
+                "scale": 1,
               },
-            }
+            ],
           }
-          useFilter={false}
-        />
-        <View
-          accessibilityState={
-            Object {
-              "disabled": true,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+        }
+      >
+        <Text
           style={
             Object {
-              "alignSelf": "center",
-              "backgroundColor": "#B4B4B4",
-              "borderColor": "#505050",
-              "borderRadius": 40,
-              "minWidth": 150,
-              "padding": 10,
-              "transform": Array [
-                Object {
-                  "scale": 1,
-                },
-              ],
+              "color": "#505050",
+              "fontFamily": "HelveticaNeue-Medium",
+              "fontSize": 18,
+              "textAlign": "center",
             }
           }
         >
-          <Text
-            style={
-              Object {
-                "color": "#505050",
-                "fontFamily": "HelveticaNeue-Medium",
-                "fontSize": 18,
-                "textAlign": "center",
-              }
-            }
-          >
-            Continua
-          </Text>
-        </View>
+          Continua
+        </Text>
       </View>
     </View>
   </View>
