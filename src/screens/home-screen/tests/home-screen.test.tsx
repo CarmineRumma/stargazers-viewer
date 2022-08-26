@@ -14,12 +14,4 @@ const mockedNavigation = jest.fn();
 
 jest.mock('react-native-autocomplete-dropdown');
 describe('HomeScreen', () => {
-  it('should render correctly', () => {
-    const {toJSON} = renderer.create(
-      //@ts-ignore
-      <HomeScreen navigation={{goBack, navigate, setOptions, addListener}} />,
-    );
-
-    expect(toJSON()).toMatchSnapshot();
-  });
 });
