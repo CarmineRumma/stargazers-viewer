@@ -58,8 +58,8 @@ export const StargazersScreen = ({route, navigation}: StargazersScreenProps) => 
     }
   };
 
-  const onStargazerClick = (stargazer: StargazersItem) => {
-    Linking.openURL(stargazer.url.replace('api.', ''));
+  const onStargazerClick = async (stargazer: StargazersItem) => {
+    await Linking.openURL(Formatter.getStargazerPublicURL(stargazer.url));
   };
 
   // @ts-ignore
@@ -101,6 +101,26 @@ export const StargazersScreen = ({route, navigation}: StargazersScreenProps) => 
           return <StargazersCell {...props} onStargazerClick={onStargazerClick} />;
         }}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+        ListHeaderComponent={() => {
+          return (
+            <View
+              style={{
+                ...styles.productCounterBar,
+                backgroundColor: Colors[colorScheme].background,
+              }}>
+              <Text
+                style={{
+                  ...styles.productCountLabel,
+                  color: Colors[colorScheme].secondary,
+                }}>
+                {filteredStargazers.length === 1
+                  ? filteredStargazers.length + ' stargazer'
+                  : filteredStargazers.length + ' stargazers'}
+              </Text>
+            </View>
+          );
+        }}
+        stickyHeaderIndices={[0]}
         ListEmptyComponent={() => {
           return (
             <View style={GlobalStyles.emptyListWrapper}>

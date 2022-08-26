@@ -14,7 +14,6 @@ export const RepositoriesScreen = ({route}: RepositoriesScreenProps) => {
   const colorScheme = useColorScheme();
   const owner: string = route.params.owner;
   const [refreshing, setRefreshing] = useState(false);
-  const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
   const [repositories, setRepositories] = useState<RepositoryItem[]>(route.params.repositories);
   const [filteredRepositories, setFilteredRepositories] = useState<RepositoryItem[]>(
@@ -123,7 +122,9 @@ export const RepositoriesScreen = ({route}: RepositoriesScreenProps) => {
                   ...styles.productCountLabel,
                   color: Colors[colorScheme].secondary,
                 }}>
-                {filteredRepositories.length} repositories
+                {filteredRepositories.length === 1
+                  ? filteredRepositories.length + ' repository'
+                  : filteredRepositories.length + ' repositories'}
               </Text>
             </View>
           );

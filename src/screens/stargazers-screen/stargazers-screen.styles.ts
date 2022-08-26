@@ -103,4 +103,16 @@ export const styles = StyleSheet.create({
     shadowRadius: 0,
   },
   separator: {},
+  productCounterBar: {
+    //height: 30,
+    backgroundColor: 'white',
+    paddingHorizontal: 14,
+    paddingVertical: 5,
+  },
+  productCountLabel: {
+    fontSize: 15,
+    color: '#FFF',
+    padding: 3,
+    fontFamily: Fonts.helveticaMedium,
+  },
 });

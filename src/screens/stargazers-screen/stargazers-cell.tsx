@@ -7,6 +7,7 @@ import moment from 'moment';
 import useColorScheme from '@stargazers/hooks/useColorScheme';
 import {StargazersCellProps} from '@stargazers/screens/stargazers-screen/stargazers-screen.types';
 import Icon from 'react-native-vector-icons/Feather';
+import Formatter from '@stargazers/utils/formatter';
 
 export const StargazersCell: React.FC<StargazersCellProps> = ({
   item,
@@ -42,7 +43,7 @@ export const StargazersCell: React.FC<StargazersCellProps> = ({
                 uri: item.avatar_url,
               }}
               resizeMode={'cover'}
-              style={{width: 60, height: 60, alignSelf: 'center', alignItems: 'center'}}
+              style={styles.avatarImage}
             />
           </View>
           <View style={styles.textsContainer}>
@@ -51,7 +52,7 @@ export const StargazersCell: React.FC<StargazersCellProps> = ({
                 ...styles.productName,
                 color: Colors[colorScheme].tint,
               }}
-              numberOfLines={2}
+              numberOfLines={1}
               ellipsizeMode="tail">
               {item.login}
             </Text>
@@ -62,7 +63,7 @@ export const StargazersCell: React.FC<StargazersCellProps> = ({
                   ...styles.updatedAt,
                   color: Colors[colorScheme].tint,
                 }}>
-                {item.url.replace('api.', '')}
+                {Formatter.getStargazerPublicURL(item.url)}
               </Text>
             </View>
           </View>

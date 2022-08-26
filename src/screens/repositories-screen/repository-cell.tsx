@@ -35,7 +35,11 @@ export const RepositoryCell: React.FC<RepositoryCellProps> = ({
               ...styles.imageWrapper,
             }}>
             <Image
-              source={require('../../assets/repo-icon.png')}
+              source={
+                colorScheme === 'dark'
+                  ? require(`../../assets/repo-icon-dark.png`)
+                  : require(`../../assets/repo-icon.png`)
+              }
               style={{width: 24, height: 24, alignSelf: 'center', alignItems: 'center'}}
             />
           </View>
@@ -62,10 +66,20 @@ export const RepositoryCell: React.FC<RepositoryCellProps> = ({
             </View>
             <View style={styles.counterRowsWrapper}>
               <Image
-                source={require('../../assets/star-icon.png')}
+                source={
+                  colorScheme === 'dark'
+                    ? require(`../../assets/star-icon-dark.png`)
+                    : require(`../../assets/star-icon.png`)
+                }
                 style={styles.starCounterImage}
               />
-              <Text style={styles.starCounterText}>{item.stargazers_count}</Text>
+              <Text
+                style={{
+                  ...styles.starCounterText,
+                  color: Colors[colorScheme].tint,
+                }}>
+                {item.stargazers_count}
+              </Text>
             </View>
           </View>
           <View style={styles.rightColumn}>
