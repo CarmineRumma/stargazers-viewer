@@ -21,7 +21,6 @@ export const StargazersScreen = ({route, navigation}: StargazersScreenProps) => 
   const [filteredStargazers, setFilteredStargazers] = useState<StargazersItem[]>(
     route.params.stargazers,
   );
-  const [search, setSearch] = useState('');
 
   useEffect(() => {
     navigation.setOptions({
@@ -51,10 +50,8 @@ export const StargazersScreen = ({route, navigation}: StargazersScreenProps) => 
         return itemData.indexOf(textData) > -1;
       });
       setFilteredStargazers(newData);
-      setSearch(text);
     } else {
       setFilteredStargazers(stargazers);
-      setSearch(text);
     }
   };
 

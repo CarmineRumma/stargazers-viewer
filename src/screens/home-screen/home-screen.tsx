@@ -200,6 +200,7 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
             />
 
             <AutocompleteDropdown
+              // @ts-ignore
               ref={searchRef}
               controller={controller => {
                 dropdownController.current = controller;

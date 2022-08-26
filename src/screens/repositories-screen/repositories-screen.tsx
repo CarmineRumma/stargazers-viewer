@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
 import useColorScheme from '../../hooks/useColorScheme';
-
 import {FlatList, View, Text, Platform, RefreshControl, TextInput} from 'react-native';
 import {getStargazers, getUserRepositories} from '@stargazers/services/user-service/user-service';
 import {RepositoryItem} from '@stargazers/services/user-service/user-service.types';
@@ -19,7 +18,6 @@ export const RepositoriesScreen = ({route}: RepositoriesScreenProps) => {
   const [filteredRepositories, setFilteredRepositories] = useState<RepositoryItem[]>(
     route.params.repositories,
   );
-  const [search, setSearch] = useState('');
 
   useEffect(() => {
     //fetchRepos();
@@ -49,16 +47,15 @@ export const RepositoriesScreen = ({route}: RepositoriesScreenProps) => {
         return itemData.indexOf(textData) > -1;
       });
       setFilteredRepositories(newData);
-      setSearch(text);
     } else {
       setFilteredRepositories(repositories);
-      setSearch(text);
     }
   };
 
   const fetchStargazers = (item: RepositoryItem) => {
     getStargazers(owner, item.name).then(
       response => {
+        //@ts-ignore
         navigation.navigate('StargazersScreen', {
           owner: owner,
           repository: item,
