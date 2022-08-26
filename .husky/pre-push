@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+source react_native_build_checks.sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+rn_unit_tests
