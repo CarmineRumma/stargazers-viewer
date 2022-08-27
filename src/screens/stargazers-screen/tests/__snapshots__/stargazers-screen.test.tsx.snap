@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeScreen should render correctly 1`] = `
+exports[`StargazersScreen should render correctly 1`] = `
 <View
   style={
     Object {
@@ -45,7 +45,28 @@ exports[`HomeScreen should render correctly 1`] = `
     ItemSeparatorComponent={[Function]}
     ListEmptyComponent={[Function]}
     ListHeaderComponent={[Function]}
-    data={Array []}
+    data={
+      Array [
+        Object {
+          "avatarImage": "test",
+          "id": 1,
+          "login": "test",
+          "url": "test",
+        },
+        Object {
+          "avatarImage": "test",
+          "id": 2,
+          "login": "test",
+          "url": "test",
+        },
+        Object {
+          "avatarImage": "test",
+          "id": 3,
+          "login": "test",
+          "url": "test",
+        },
+      ]
+    }
     getItem={[Function]}
     getItemCount={[Function]}
     keyExtractor={[Function]}
@@ -97,34 +118,520 @@ exports[`HomeScreen should render correctly 1`] = `
               }
             }
           >
-            0 stargazers
+            3 stargazers
           </Text>
         </View>
       </View>
       <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "flex": 1,
-            "flexDirection": "column",
-            "paddingTop": 333.5,
-          }
-        }
+        onLayout={[Function]}
+        style={null}
       >
-        <Text
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#383B42",
-              "fontFamily": "Montserrat-SemiBold",
-              "fontSize": 26,
-              "maxWidth": "90%",
-              "textAlign": "center",
+              "alignItems": "flex-start",
+              "backgroundColor": "#fff",
+              "borderBottomColor": "#f4f4f4",
+              "borderBottomWidth": 1,
+              "justifyContent": "center",
+              "minHeight": 60,
+              "padding": 8,
+              "paddingVertical": 10,
             }
           }
         >
-          no stargazer...yet
-        </Text>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "borderColor": "#414757",
+                  "borderRadius": 30,
+                  "borderWidth": 2,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "marginEnd": 20,
+                  "overflow": "hidden",
+                  "width": 60,
+                }
+              }
+            >
+              <Image
+                resizeMode="cover"
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "height": 60,
+                    "width": 60,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "fontFamily": "Montserrat-Regular",
+                  "overflow": "hidden",
+                  "shadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                  "textShadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#383B42",
+                    "fontFamily": "HelveticaNeue-Medium",
+                    "fontSize": 18,
+                    "lineHeight": 18,
+                    "marginBottom": 2,
+                    "paddingTop": 8,
+                    "shadowOffset": Object {
+                      "height": 0,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0,
+                    "shadowRadius": 0,
+                  }
+                }
+              >
+                test
+              </Text>
+              <View
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "height": 18,
+                    "justifyContent": "flex-start",
+                    "marginTop": 4,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#383B42",
+                      "flex": 1,
+                      "fontFamily": "Montserrat-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                      "marginLeft": 0,
+                      "paddingBottom": 5,
+                      "shadowOffset": Object {
+                        "height": 0,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0,
+                      "shadowRadius": 0,
+                    }
+                  }
+                >
+                  test
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "alignItems": "center",
+                  "alignSelf": "center",
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "marginTop": 0,
+                  "right": 3,
+                }
+              }
+            >
+              <Feather
+                color="#383B42"
+                name="link-2"
+                size={20}
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              false,
+            ]
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#fff",
+              "borderBottomColor": "#f4f4f4",
+              "borderBottomWidth": 1,
+              "justifyContent": "center",
+              "minHeight": 60,
+              "padding": 8,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "borderColor": "#414757",
+                  "borderRadius": 30,
+                  "borderWidth": 2,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "marginEnd": 20,
+                  "overflow": "hidden",
+                  "width": 60,
+                }
+              }
+            >
+              <Image
+                resizeMode="cover"
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "height": 60,
+                    "width": 60,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "fontFamily": "Montserrat-Regular",
+                  "overflow": "hidden",
+                  "shadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                  "textShadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#383B42",
+                    "fontFamily": "HelveticaNeue-Medium",
+                    "fontSize": 18,
+                    "lineHeight": 18,
+                    "marginBottom": 2,
+                    "paddingTop": 8,
+                    "shadowOffset": Object {
+                      "height": 0,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0,
+                    "shadowRadius": 0,
+                  }
+                }
+              >
+                test
+              </Text>
+              <View
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "height": 18,
+                    "justifyContent": "flex-start",
+                    "marginTop": 4,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#383B42",
+                      "flex": 1,
+                      "fontFamily": "Montserrat-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                      "marginLeft": 0,
+                      "paddingBottom": 5,
+                      "shadowOffset": Object {
+                        "height": 0,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0,
+                      "shadowRadius": 0,
+                    }
+                  }
+                >
+                  test
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "alignItems": "center",
+                  "alignSelf": "center",
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "marginTop": 0,
+                  "right": 3,
+                }
+              }
+            >
+              <Feather
+                color="#383B42"
+                name="link-2"
+                size={20}
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              false,
+            ]
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#fff",
+              "borderBottomColor": "#f4f4f4",
+              "borderBottomWidth": 1,
+              "justifyContent": "center",
+              "minHeight": 60,
+              "padding": 8,
+              "paddingVertical": 10,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "alignItems": "center",
+                  "backgroundColor": "#fff",
+                  "borderColor": "#414757",
+                  "borderRadius": 30,
+                  "borderWidth": 2,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "marginEnd": 20,
+                  "overflow": "hidden",
+                  "width": 60,
+                }
+              }
+            >
+              <Image
+                resizeMode="cover"
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "alignSelf": "center",
+                    "height": 60,
+                    "width": 60,
+                  }
+                }
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "fontFamily": "Montserrat-Regular",
+                  "overflow": "hidden",
+                  "shadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                  "textShadowOffset": Object {
+                    "height": 0,
+                    "width": 0,
+                  },
+                }
+              }
+            >
+              <Text
+                ellipsizeMode="tail"
+                numberOfLines={1}
+                style={
+                  Object {
+                    "color": "#383B42",
+                    "fontFamily": "HelveticaNeue-Medium",
+                    "fontSize": 18,
+                    "lineHeight": 18,
+                    "marginBottom": 2,
+                    "paddingTop": 8,
+                    "shadowOffset": Object {
+                      "height": 0,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0,
+                    "shadowRadius": 0,
+                  }
+                }
+              >
+                test
+              </Text>
+              <View
+                style={
+                  Object {
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "height": 18,
+                    "justifyContent": "flex-start",
+                    "marginTop": 4,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#383B42",
+                      "flex": 1,
+                      "fontFamily": "Montserrat-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                      "marginLeft": 0,
+                      "paddingBottom": 5,
+                      "shadowOffset": Object {
+                        "height": 0,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0,
+                      "shadowRadius": 0,
+                    }
+                  }
+                >
+                  test
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "alignItems": "center",
+                  "alignSelf": "center",
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "marginTop": 0,
+                  "right": 3,
+                }
+              }
+            >
+              <Feather
+                color="#383B42"
+                name="link-2"
+                size={20}
+              />
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   </RCTScrollView>

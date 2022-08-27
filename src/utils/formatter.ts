@@ -5,7 +5,7 @@ const injectUrlParam = (template: string, params: string) =>
 
 const truncate = (str: string, maxLength: number = 18) => {
   if (str.length > maxLength) {
-    return str.substr(0, 18) + '...';
+    return str.substr(0, maxLength) + '...';
   }
   return str;
 };

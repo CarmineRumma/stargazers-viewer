@@ -1,13 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {
-  View,
-  Platform,
-  Animated,
-  Text,
-  KeyboardAvoidingView,
-  Keyboard,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Platform, Animated, Text, Keyboard} from 'react-native';
 import useColorScheme from '../../hooks/useColorScheme';
 import {OwnerSuggestionType} from '@stargazers/screens/home-screen/home-screen.types';
 import Easing from '@stargazers/utils/easing';
@@ -32,7 +24,6 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
 
   const getSuggestions = useCallback(async (q: string) => {
     const filterToken = q;
-    //console.log('getSuggestions', q);
     if (typeof q !== 'string' || q.length < 3) {
       setSuggestionsList(undefined);
       return;
@@ -204,18 +195,15 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
             controller={controller => {
               dropdownController.current = controller;
             }}
-            // initialValue={'1'}
             direction={Platform.select({ios: 'down'})}
             dataSet={suggestionsList}
             onChangeText={getSuggestions}
             onSelectItem={item => {
-              item && console.log(item.title);
               item && setSelectedUser(item.title);
             }}
             debounce={600}
             suggestionsListMaxHeight={SCREEN_HEIGHT * 0.4}
             onClear={onClearPress}
-            //onSubmit={(e) => onSubmitSearch(e.nativeEvent.text)}
             onOpenSuggestionsList={onOpenSuggestionsList}
             loading={loading}
             useFilter={false}
@@ -281,7 +269,7 @@ export const HomeScreen: (props: HomeScreenProps) => JSX.Element = ({navigation}
                     ? Colors[colorScheme].buttonEnabledColor
                     : Colors[colorScheme].buttonDisabledColor,
               }}>
-              Continua
+              Continue
             </Text>
           </Button>
         </Animated.View>

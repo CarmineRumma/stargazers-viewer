@@ -1,13 +1,17 @@
+// @ts-nocheck
 import React from 'react';
+import {Text, View} from 'react-native';
 import renderer from 'react-test-renderer';
-import {default as withSafeAreaWrapper} from '../withSafeAreaWrapper';
-import {View} from 'react-native';
+import {default as withSafeArea} from '../withSafeAreaWrapper';
+const mockComponent = jest.fn(() => <Text accessibilityLabel={'test'}></Text>);
+const Component = withSafeArea(mockComponent);
 
-describe('withSafeAreaWrapper', () => {
+describe('withSafeArea', () => {
   it('should render correctly', () => {
-    // @ts-ignore
-    const {toJSON} = renderer.create(withSafeAreaWrapper(<View />));
+    const {root, container} = renderer.create(<Component />);
 
-    expect(toJSON()).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+    const text = root.findByType(Text).props;
+    expect(text.accessibilityLabel).toEqual('test');
   });
 });

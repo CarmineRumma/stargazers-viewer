@@ -7,5 +7,10 @@ describe('formatter', () => {
       const owner = 'CarmineRumma';
       expect(Formatter.injectUrlParam(templateEx, owner)).toBe('https://github.com/CarmineRumma');
     });
+
+    it('truncate correctly works', () => {
+      const owner = 'CarmineRumma';
+      expect(Formatter.truncate(owner, 7)).toBe('Carmine...');
+    });
   });
 });
